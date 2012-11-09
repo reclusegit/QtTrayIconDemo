@@ -1,4 +1,4 @@
-#include <QtGui/QApplication>
+ï»¿#include <QtGui/QApplication>
 #include <QTranslator>
 #include <QTextCodec>
 
@@ -6,14 +6,14 @@
 
 int main(int argc, char *argv[])
 {
-    // ÈÃQMessageBox¿ÉÓÃÊ¹ÓÃÖĞÎÄ°´Å¥
+    // è®©QMessageBoxå¯ç”¨ä½¿ç”¨ä¸­æ–‡æŒ‰é’®
     QTranslator oTranslator;
     oTranslator.load(":/qt_zh_CN.qm");
     QApplication app(argc, argv);
     app.installTranslator(&oTranslator);
 
-    // ÈÃQT³ÌĞò¿ÉÒÔÊ¹ÓÃÖĞÎÄ
-    // »ñÈ¡ÏµÍ³±àÂë
+    // è®©QTç¨‹åºå¯ä»¥ä½¿ç”¨ä¸­æ–‡
+    // è·å–ç³»ç»Ÿç¼–ç 
     QTextCodec *codec = QTextCodec::codecForName("System");
     QTextCodec::setCodecForLocale(codec);
     QTextCodec::setCodecForCStrings(codec);

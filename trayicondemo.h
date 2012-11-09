@@ -1,4 +1,4 @@
-#ifndef TRAYICONDEMO_H
+ï»¿#ifndef TRAYICONDEMO_H
 #define TRAYICONDEMO_H
 
 #include <QMainWindow>
@@ -9,7 +9,7 @@ namespace Ui {
 class TrayIconDemo;
 }
 
-// Ç°ÏòÉùÃ÷
+// å‰å‘å£°æ˜
 class QAction;
 
 class TrayIconDemo : public QMainWindow
@@ -26,7 +26,7 @@ public slots:
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
 
 protected:
-    // ÖØÔØ´°¿Ú¹Ø±ÕÊÂ¼ş
+    // é‡è½½çª—å£å…³é—­äº‹ä»¶
     void closeEvent(QCloseEvent *event);
 
 private:

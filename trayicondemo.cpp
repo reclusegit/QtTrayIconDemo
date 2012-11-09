@@ -1,4 +1,4 @@
-#include <QSystemTrayIcon>
+ï»¿#include <QSystemTrayIcon>
 #include "trayicondemo.h"
 #include "ui_trayicondemo.h"
 
@@ -21,32 +21,32 @@ TrayIconDemo::~TrayIconDemo()
 
 void TrayIconDemo::createTrayIcon()
 {
-    // ´´½¨ÍÐÅÌÓÒ¼ü²Ëµ¥
+    // åˆ›å»ºæ‰˜ç›˜å³é”®èœå•
     CreatTrayMenu();
 
     if(!QSystemTrayIcon::isSystemTrayAvailable())
         return;
 
-    // ´´½¨ÍÐÅÌÍ¼±ê
+    // åˆ›å»ºæ‰˜ç›˜å›¾æ ‡
     _pTrayIcon = new QSystemTrayIcon(this);
     _pTrayIcon->setIcon(QIcon(_strIconPath));
     _pTrayIcon->setContextMenu(_pMenu);
-    _pTrayIcon->setToolTip(tr("Ö§¸¶¶Ü"));
-    _pTrayIcon->showMessage(tr("Ö§¸¶¶Ü"), tr("Ö§¸¶¶Ü¼´½«²åÈë"),
+    _pTrayIcon->setToolTip(tr("æ”¯ä»˜ç›¾"));
+    _pTrayIcon->showMessage(tr("æ”¯ä»˜ç›¾"), tr("æ”¯ä»˜ç›¾å³å°†æ’å…¥"),
         QSystemTrayIcon::Information, 5000);
     _pTrayIcon->show();
 
-    // ÍÐÅÌÊÂ¼þÏìÓ¦
+    // æ‰˜ç›˜äº‹ä»¶å“åº”
     connect(_pTrayIcon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this,SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 void TrayIconDemo::CreatTrayMenu()
 {
-    _pminiSizeAction = new QAction("×îÐ¡»¯(&N)",this);
-    _pmaxSizeAction = new QAction("×î´ó»¯(&X)",this);
-    _prestoreWinAction = new QAction("»¹ Ô­(&R)",this);
-    _pquitAction = new QAction("ÍË³ö(&Q)",this);
+    _pminiSizeAction = new QAction("æœ€å°åŒ–(&N)",this);
+    _pmaxSizeAction = new QAction("æœ€å¤§åŒ–(&X)",this);
+    _prestoreWinAction = new QAction("è¿˜ åŽŸ(&R)",this);
+    _pquitAction = new QAction("é€€å‡º(&Q)",this);
 
     connect(_pminiSizeAction,SIGNAL(triggered()),this,SLOT(hide()));
     connect(_pmaxSizeAction,SIGNAL(triggered()),this,SLOT(showMaximized()));
@@ -57,7 +57,7 @@ void TrayIconDemo::CreatTrayMenu()
     _pMenu->addAction(_pminiSizeAction);
     _pMenu->addAction(_pmaxSizeAction);
     _pMenu->addAction(_prestoreWinAction);
-    _pMenu->addSeparator();     //¼ÓÈëÒ»¸ö·ÖÀë·û
+    _pMenu->addSeparator();     //åŠ å…¥ä¸€ä¸ªåˆ†ç¦»ç¬¦
     _pMenu->addAction(_pquitAction);
 }
 
@@ -74,14 +74,14 @@ void TrayIconDemo::iconActivated(QSystemTrayIcon::ActivationReason reason)
     }
 }
 
-// ½Ø»ñ¹Ø±ÕÊÂ¼þ£¬×öÐ©ÍÐÅÌÌáÊ¾
+// æˆªèŽ·å…³é—­äº‹ä»¶ï¼Œåšäº›æ‰˜ç›˜æç¤º
 void TrayIconDemo::closeEvent(QCloseEvent *event)
 {
     if (_pTrayIcon->isVisible())
     {
-        _pTrayIcon->showMessage("Ö§¸¶¶Ü","Ë«»÷ÍÐÅÌÍ¼±ê¿É»Ö¸´´°¿Ú",QSystemTrayIcon::Information,3000);
+        _pTrayIcon->showMessage("æ”¯ä»˜ç›¾","åŒå‡»æ‰˜ç›˜å›¾æ ‡å¯æ¢å¤çª—å£",QSystemTrayIcon::Information,3000);
 
-        this->hide();     //×îÐ¡»¯
+        this->hide();     //æœ€å°åŒ–
         event->ignore();
     }
     else
